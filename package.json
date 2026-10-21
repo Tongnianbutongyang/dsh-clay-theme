@@ -1,0 +1,53 @@
+{
+  "name": "dsh-clay-theme",
+  "version": "0.1.10",
+  "description": "软陶（Clay）主题：暖奶油底色、柔和浮雕阴影、14–20px 圆角、胶囊分段选择器。仅作用于浅色模式。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "theme",
+    "clay",
+    "macaron",
+    "neumorphism",
+    "web-ui",
+    "cordis"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "clay.css",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compatibility": {
+      "dshReleases": {
+        "0.2.0-rc.1": "compatible"
+      }
+    },
+    "client": {
+      "inject": [],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tongnianbutongyang/dsh-clay-theme.git"
+  },
+  "homepage": "https://github.com/Tongnianbutongyang/dsh-clay-theme#readme",
+  "author": "Tongnianbutongyang"
+}

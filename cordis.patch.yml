@@ -1,0 +1,4 @@
+# dsh-clay-theme bundle patch: mounts the clay theme plugin (host + browser halves).
+- insert:
+    - id: dsh-clay-theme
+      name: 'dsh-clay-theme'
