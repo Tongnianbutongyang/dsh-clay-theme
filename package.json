@@ -1,6 +1,6 @@
 {
   "name": "dsh-clay-theme",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "软陶（Clay）主题：支持浅色模式（奶油底 + 马卡龙光晕）与深色模式（黑巧克力底 + 酒红角落光晕）；柔和浮雕、圆角与选中高亮，随 DSH 浅/深色模式自动切换。",
   "keywords": [
     "dsh",

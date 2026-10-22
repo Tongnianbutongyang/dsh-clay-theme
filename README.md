@@ -32,7 +32,7 @@
    {
      "dependencies": {
        // ...原有依赖保持不变
-       "dsh-clay-theme": "file:C:/Users/<你>/.dsh/plugins-local/dsh-clay-theme/dsh-clay-theme-0.1.10.tgz"
+       "dsh-clay-theme": "file:C:/Users/<你>/.dsh/plugins-local/dsh-clay-theme/dsh-clay-theme-0.1.19.tgz"
      },
      "dsh": {
        "profile": {
@@ -50,8 +50,8 @@
    ```
 5. 打开 DSH，在「设置 → 通用 → 外观」选择浅色或深色（或跟随系统），主题会自动切换。
 
-> 也可以直接用 Git 依赖：`"dsh-clay-theme": "github:Tongnianbutongyang/dsh-clay-theme#v0.1.18"`。
-> 本包目前**未发布到 npm**；若日后发布，可直接写 `"dsh-clay-theme": "^0.1.18"`。
+> 也可以直接用 Git 依赖：`"dsh-clay-theme": "github:Tongnianbutongyang/dsh-clay-theme#v0.1.19"`。
+> 本包目前**未发布到 npm**；若日后发布，可直接写 `"dsh-clay-theme": "^0.1.19"`。
 
 ## 回退 / 卸载
 

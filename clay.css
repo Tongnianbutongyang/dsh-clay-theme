@@ -532,3 +532,93 @@ body[data-ds-dark-theme] [class*=Popup]{
 body[data-ds-dark-theme] [class*=footArea] button,
 body[data-ds-dark-theme] [class*=footerActions] button{
   pointer-events:auto!important;position:relative!important;z-index:5!important}
+
+/* ===== 0.1.19: opaque code blocks (stop body glow bleed) ===== */
+/* Nested emboss wipe + pre.shiki{transparent} let body fixed wine/macaron radials show through 「代码块」. */
+/* Late solid overrides — do not reintroduce body>* z-index or body::before. */
+
+/* Dark: solid chocolate on outer shell, pre, and common code wrappers */
+body[data-ds-dark-theme] :has(> [class*=_content_] > div > pre.shiki),
+body[data-ds-dark-theme] :has(> [class*=_content_] pre.shiki),
+body[data-ds-dark-theme] :has(> pre.shiki),
+body[data-ds-dark-theme] :has(> pre),
+body[data-ds-dark-theme] [class*=codeBlock i],
+body[data-ds-dark-theme] [class*=CodeBlock],
+body[data-ds-dark-theme] [class*=markdown i] pre,
+body[data-ds-dark-theme] [class*=_card] :is(div,section,header,footer):has(pre),
+body[data-ds-dark-theme] [class*=_card] :is(div,section,header,footer):has(pre.shiki),
+body[data-ds-dark-theme] [class*=card i] :is(div,section,header,footer):has(pre),
+body[data-ds-dark-theme] [class*=card i] :is(div,section,header,footer):has(pre.shiki),
+body[data-ds-dark-theme] pre,
+body[data-ds-dark-theme] pre.shiki{
+  background:#1a1614!important;
+  background-color:#1a1614!important;
+  background-image:none!important;
+  border:0!important;
+  border-radius:18px!important;
+  box-shadow:var(--clay-inset)!important;
+  backdrop-filter:none!important}
+
+/* Dark: 「代码块」 header bar slightly lighter */
+body[data-ds-dark-theme] :has(> [class*=_content_] > div > pre.shiki) > :first-child:not(pre):not(:has(pre)),
+body[data-ds-dark-theme] :has(> [class*=_content_] pre.shiki) > :first-child:not(pre):not(:has(pre)),
+body[data-ds-dark-theme] [class*=codeBlock i] > :first-child:not(pre),
+body[data-ds-dark-theme] [class*=CodeBlock] > :first-child:not(pre),
+body[data-ds-dark-theme] [class*=_card] :is(div,section,header):has(> pre) > :first-child:not(pre),
+body[data-ds-dark-theme] [class*=card i] :is(div,section,header):has(> pre) > :first-child:not(pre){
+  background:#221c19!important;
+  background-color:#221c19!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  border-radius:18px 18px 0 0!important}
+
+/* Light: solid cream — same bleed risk from macaron blobs */
+body:not([data-ds-dark-theme]) :has(> [class*=_content_] > div > pre.shiki),
+body:not([data-ds-dark-theme]) :has(> [class*=_content_] pre.shiki),
+body:not([data-ds-dark-theme]) :has(> pre.shiki),
+body:not([data-ds-dark-theme]) :has(> pre),
+body:not([data-ds-dark-theme]) [class*=codeBlock i],
+body:not([data-ds-dark-theme]) [class*=CodeBlock],
+body:not([data-ds-dark-theme]) [class*=markdown i] pre,
+body:not([data-ds-dark-theme]) [class*=_card] :is(div,section,header,footer):has(pre),
+body:not([data-ds-dark-theme]) [class*=_card] :is(div,section,header,footer):has(pre.shiki),
+body:not([data-ds-dark-theme]) [class*=card i] :is(div,section,header,footer):has(pre),
+body:not([data-ds-dark-theme]) [class*=card i] :is(div,section,header,footer):has(pre.shiki),
+body:not([data-ds-dark-theme]) pre,
+body:not([data-ds-dark-theme]) pre.shiki{
+  background:#f3eadd!important;
+  background-color:#f3eadd!important;
+  background-image:none!important;
+  border:0!important;
+  border-radius:18px!important;
+  box-shadow:inset 4px 4px 10px rgba(166,135,100,.30),inset -4px -4px 10px rgba(255,255,255,.85)!important;
+  backdrop-filter:none!important}
+
+body:not([data-ds-dark-theme]) :has(> [class*=_content_] > div > pre.shiki) > :first-child:not(pre):not(:has(pre)),
+body:not([data-ds-dark-theme]) :has(> [class*=_content_] pre.shiki) > :first-child:not(pre):not(:has(pre)),
+body:not([data-ds-dark-theme]) [class*=codeBlock i] > :first-child:not(pre),
+body:not([data-ds-dark-theme]) [class*=CodeBlock] > :first-child:not(pre),
+body:not([data-ds-dark-theme]) [class*=_card] :is(div,section,header):has(> pre) > :first-child:not(pre),
+body:not([data-ds-dark-theme]) [class*=card i] :is(div,section,header):has(> pre) > :first-child:not(pre){
+  background:#efe3d2!important;
+  background-color:#efe3d2!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  border-radius:18px 18px 0 0!important}
+
+/* Keep syntax text layer transparent (no nested chip paint on pre>code) */
+body[data-ds-dark-theme] pre code,
+body[data-ds-dark-theme] pre.shiki code,
+body[data-ds-dark-theme] [class*=card i] pre code,
+body:not([data-ds-dark-theme]) pre code,
+body:not([data-ds-dark-theme]) pre.shiki code,
+body:not([data-ds-dark-theme]) [class*=card i] pre code{
+  display:block!important;
+  background:transparent!important;
+  background-image:none!important;
+  color:inherit!important;
+  padding:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  font-size:inherit!important;
+  line-height:inherit!important}
